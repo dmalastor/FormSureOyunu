@@ -48,6 +48,8 @@ namespace WindowsFormsApp1
             label2.Text = sure.ToString();
             if (sure == 0)
             {
+                tmr_game.Stop();
+                tmr_sure.Stop();
                 MessageBox.Show($"Oyun bitti puanınız: {sonuc}");
                 DialogResult again = MessageBox.Show("Tekrar Oynamak İster misiniz ?","Tekrar Oyna", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (again == DialogResult.No)
@@ -60,17 +62,17 @@ namespace WindowsFormsApp1
                              wr.Close();
                      }
                     this.Close();
-                       
-                   
+                    
                 }
 
                 else
                 {
-                    tmr_game.Stop();
+                    
                     tmr_game.Start();
-                    tmr_sure.Stop();
+                    
                     tmr_sure.Start();
-                    sure = 5;
+
+                    sure = 30;
                     sonuc = 0;
                     label1.Text = "Puan";
                     label2.Text = "Süre";
